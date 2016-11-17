@@ -14,6 +14,19 @@ app.post('/insertEmployee', function(req, res){
     
     // call the insert function on the parameters inserted by the user
     model.insertEmployee(req.body.ID, req.body.Name, req.body.Surname, req.body.Level, req.body.Salary);
+    bind.toFile('home.tpl', 
+            {
+                ID : req.body.ID,
+                Name : req.body.Name,
+                Surname : req.body.Surname,
+                Level : req.body.Level,
+                Salary : req.body.Salary
+            }, 
+            function(data){
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(data);
+            }
+        )
 });
 
 // handling the request for searching or deleting an employee
@@ -49,7 +62,14 @@ app.post('/processID', function(req, res){
     else{
         
         // ...call the delete function
-        model.deleteEmployee(req.body.inputID)
+        model.deleteEmployee(req.body.inputID);
+        bind.toFile('home.tpl', 
+            {}, 
+            function(data){
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(data);
+            }
+        )
     }
 });
 
