@@ -48,7 +48,7 @@ app.post('/processID', function(req, res){
     // otherwise, if the user hit the delete button...
     else{
         
-        // ...cal the delete function
+        // ...call the delete function
         model.deleteEmployee(req.body.inputID)
     }
 });
