@@ -55,7 +55,6 @@ app.post('/processID', function(req, res){
     
     // otherwise, if the user hit the search button...
     else if(req.body.SearchEmployee != undefined){
-        console.log("Otherwise");
         
         // ...find the index
         var index = model.searchEmployee(req.body.inputID);
