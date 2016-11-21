@@ -11,7 +11,7 @@
         
         <!-- form for searching or deleting an employee, sends a POST request to server -->
         <form id = "searchForm" action ="/processID" method = "POST">
-            <input type = "text" name = "inputID">
+            <input type = "number" name = "inputID">
             <br>
             <br>
             <input type = "submit" value = "Search Employee" name = "SearchEmployee">

@@ -34,14 +34,18 @@ function deleteEmployee(id){
 // this function inserts/update the employee in the array
 function insertEmployee(id, name, surname, level, salary){
     
-    // if the employee is already stored in the array, update its attributes
+    // if any parameter but ID is left empty, do nothing
+    if((name == "") || (surname == "") || (level == "") || (salary == "")){ 
+    }
+    
+    // otherwise, if the employee is already stored in the array, update its attributes
     // with the values inserted by the user
-    if(searchEmployee(id) != -1){
+    else if(searchEmployee(id) != -1){
         employees[searchEmployee(id)].name = name;
         employees[searchEmployee(id)].surname = surname;
         employees[searchEmployee(id)].level = level;
         employees[searchEmployee(id)].salary = salary;
-    }
+    } 
     
     // otherwise...
     else{
