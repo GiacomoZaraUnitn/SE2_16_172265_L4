@@ -1,6 +1,8 @@
-// this function cares about making the form visible when 
-// any page different from homepage is loaded (e.g.: after an
-// employee was searched)
+/* 
+    this function cares about making the form visible when 
+    any page different from homepage is loaded 
+    (e.g.: after an employee was searched) 
+*/
 window.onload = function(){
     var formG = document.getElementById("employeeForm");
     if(window.location.pathname.substr(1) != ""){
@@ -8,8 +10,10 @@ window.onload = function(){
     }
 }
 
-// this function is called when the user wants to hide or show
-// the employee form. It just switches the visibility value
+/* 
+    this function is called when the user wants to hide or show
+    the employee form. It just switches the visibility value
+*/
 function showIt(){
     var form = document.getElementById("employeeForm");
     if(form.style.visibility == "visible"){

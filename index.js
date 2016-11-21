@@ -1,3 +1,4 @@
+// setting the variables for imported functions and libraries
 var express = require("express");           
 var app = express();                        
 var bind = require("bind");
@@ -12,10 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // handling the request for inserting an employee
 app.post('/insertEmployee', function(req, res){
     
-    // call the insert function on the parameters inserted by the user
+    // calling the insert function on the parameters inserted by the user
     model.insertEmployee(req.body.ID, req.body.Name, req.body.Surname, req.body.Level, req.body.Salary);
     
-    // keep the values into the form
+    // keeping the values into the form
     bind.toFile('home.tpl', 
             {
                 ID : req.body.ID,
@@ -37,7 +38,7 @@ app.post('/processID', function(req, res){
     // if the employee with the ID inserted by the user doesn't exist...
     if(model.searchEmployee(req.body.inputID) == -1){    
         
-        // bind an empty object (i.e.: show empty form)
+        // binding an empty object (i.e.: show empty form)
         bind.toFile('home.tpl', 
             {
                 ID : "",
@@ -56,10 +57,10 @@ app.post('/processID', function(req, res){
     // otherwise, if the user hit the search button...
     else if(req.body.SearchEmployee != undefined){
         
-        // ...find the index
+        // ...finding the index
         var index = model.searchEmployee(req.body.inputID);
         
-        // bind the object with the template and return the updated page
+        // binding the object with the template and return the updated page
         bind.toFile('home.tpl', 
             {
                 ID : model.employees[index].id,
@@ -78,10 +79,10 @@ app.post('/processID', function(req, res){
     // otherwise, if the user hit the delete button...
     else{
         
-        // ...call the delete function
+        // ...calling the delete function
         model.deleteEmployee(req.body.inputID);
         
-        // fill the form with empty values
+        // filling the form with empty values
         bind.toFile('home.tpl', 
             {}, 
             function(data){

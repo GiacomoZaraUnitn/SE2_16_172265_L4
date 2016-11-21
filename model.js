@@ -10,8 +10,10 @@ function Employee(id, name, surname, level, salary){
 // array for storing the employees
 var employees = [];
 
-// this function returns the index in the array of the employee associated 
-// to the ID inserted by the user, -1 if not found
+/* 
+    this function returns the index in the array of the employee associated 
+    to the ID inserted by the user, -1 if not found
+*/
 function searchEmployee(id){
     for(var i = 0; i < employees.length; i++){
         if(id == employees[i].id){
@@ -21,8 +23,10 @@ function searchEmployee(id){
     return -1;
 }
 
-// this function removes from the array the employee associated to the
-// ID inserted by the user
+/* 
+    this function removes from the array the employee associated to the
+    ID inserted by the user
+*/
 function deleteEmployee(id){
     for(var i = 0; i < employees.length; i++){
         if(id == employees[i].id){
@@ -38,8 +42,10 @@ function insertEmployee(id, name, surname, level, salary){
     if((name == "") || (surname == "") || (level == "") || (salary == "")){ 
     }
     
-    // otherwise, if the employee is already stored in the array, update its attributes
-    // with the values inserted by the user
+    /* 
+        otherwise, if the employee is already stored in the array, update its attributes
+        with the values inserted by the user
+    */
     else if(searchEmployee(id) != -1){
         employees[searchEmployee(id)].name = name;
         employees[searchEmployee(id)].surname = surname;
@@ -50,18 +56,20 @@ function insertEmployee(id, name, surname, level, salary){
     // otherwise...
     else{
         
-        // ...if the user didn't specify an ID, automatically assign
-        // the next maximum ID
+        /* 
+            ...if the user didn't specify an ID, automatically assign
+            the next maximum ID
+        */
          if(id == ""){
             id = parseInt(maxID(employees)) + parseInt(1);
         }
-        // create a new Employee object, and put it into the array
+        // creating a new Employee object, and storing it into the array
         var newEmployee = new Employee(id, name, surname, level, salary);
         employees.push(newEmployee);
     }
 }
 
-// find the maximum ID among the employees stored in the array
+// finding the maximum ID among the employees stored in the array
 function maxID(){
     var res = 0;
     for(var i = 0; i < employees.length; i++){
@@ -72,7 +80,7 @@ function maxID(){
     return res;
 }
 
-// export the functions and variables to be made public
+// exporting the functions and variables to be made public
 exports.insertEmployee = insertEmployee;
 exports.searchEmployee = searchEmployee;
 exports.deleteEmployee = deleteEmployee;
