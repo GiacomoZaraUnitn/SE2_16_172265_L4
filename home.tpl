@@ -28,16 +28,16 @@
         
         <!-- employee form, for showing/inserting the employee's attributes -->
         <!-- the values are binded as template -->
-        <form id = "employeeForm" action = "/insertEmployee" method = "POST" style = "visibility:visible">
-            <input type = "number" placeholder="ID" value="(:ID:)" name = "ID">
+        <form id = "employeeForm" action = "/insertEmployee" method = "POST" style = "visibility:hidden">
+            <input type = "number" placeholder="ID" value= "(:ID:)" name = "ID">
             <br>
             <input type = "text" placeholder = "Name" value = "(:Name:)" name = "Name">
             <br>
             <input type = "text" placeholder = "Surname" value = "(:Surname:)" name = "Surname">
             <br>
-            <input type = "text" placeholder = "Level" value = "(:Level:)" name = "Level">
+            <input type = "number" placeholder = "Level" value = "(:Level:)" name = "Level">
             <br>
-            <input type = "text" placeholder = "Salary" value = "(:Salary:)" name = "Salary">
+            <input type = "number" placeholder = "Salary" value = "(:Salary:)" name = "Salary">
             <br>
             <br>
             <input type="submit" value="Insert employee">
